@@ -30,7 +30,7 @@ Since I haven't managed to figure out how to add documentation for custom filter
 {
   "$and": 
       [ "a", 
-      {"$or": ["b", "c"]}
+       { "$or": ["b", "c"] }
       ]
 }
 ```
@@ -41,10 +41,8 @@ Since I haven't managed to figure out how to add documentation for custom filter
 ```json
 {
   "$and": [
-    "a",
-      {"$not": 
-         {"$or": ["b", "c"] }
-    }
+      "a",
+      {"$not": {"$or": ["b", "c"] }}
   ]
 }
 ```
@@ -68,13 +66,8 @@ Since I haven't managed to figure out how to add documentation for custom filter
        "a",
        { 
           "$not": {
-              "$and": [
-                     "b",
-                     { 
-                        "$or": [ "c", "d"]
-                     }
-                ]
-            }
+              "$and": ["b", { "$or": [ "c", "d"]} ]
+          }
        }
     ]
 }
