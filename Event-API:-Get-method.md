@@ -52,7 +52,7 @@ Since I haven't managed to figure out how to add documentation for custom filter
 
 ```json
 {
-    "$or"[
+    "$or":[
       {"$and":["a","b"]},
       {"$and":["c","d"]}
     ]
