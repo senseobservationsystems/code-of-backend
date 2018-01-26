@@ -6,7 +6,7 @@ Since I haven't managed to figure out how to add documentation for custom filter
 | end_time     | DateTime value to specify the end time of the time range where the query should be applied.DateTime should be supplied in a ISO format: YYYY-MM-DDThh:mm[:ss[.uuuuuu]][+HH:MM|-HH:MM|Z] |
 | start_strict | boolean to specify whether query should be executed in with strict mode for start_time.<br />- Non strict start time request means that sensor data samples time period could intersect with start time request. When it does, sensor data samples will be included in the request result.<br />- Strict start time request means that start time of sensor data sample must be equal to  or later than the request start time. |
 | end_strict   | boolean to specify whether query should be executed in with strict mode for end_time.<br />- Non strict end time request means that sensor data samples time period could intersect with end time request. When it does, sensor data samples will be included in the request result.<br />- Strict end time request means that end time of sensor data sample must be less than the request end time |
-| tags         |  (see the example below)
+| tags         | URI encoded string. You can encode the string by `encodeURIComponent('<tag query string>')` in JS. For the examples of notation for tag filter, see the section below.
 
 ## Example notations for `tags` field
 
