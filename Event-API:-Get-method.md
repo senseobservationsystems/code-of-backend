@@ -8,12 +8,9 @@ Since I haven't managed to figure out how to add documentation for custom filter
 | end_strict   | boolean to specify whether query should be executed in with strict mode for end_time.<br />- Non strict end time request means that sensor data samples time period could intersect with end time request. When it does, sensor data samples will be included in the request result.<br />- Strict end time request means that end time of sensor data sample must be less than the request end time |
 | tags         |  (see the example below)
 
-## Example for Tags
+## Example notations for `tags` field
 
 ### 1. a & b & !c & !d 
-
-a. Notation in Event API query syntax
-
 
 ```json
 {
@@ -26,8 +23,6 @@ a. Notation in Event API query syntax
 }
 ```
 
-
-b. Prosessing ogic
 
 ### 2. a & (b | c)
 
@@ -69,16 +64,18 @@ b. Prosessing ogic
 
 ```json
 {
-  "$and": [
-    "a",
-      {"$not": 
-         {"$and": [
-          "b",
-          "$or": [
-              "c", 
-              "d"] 
-        }
-    }
-  ]
+   "$and": [
+       "a",
+       { 
+          "$not": {
+              "$and": [
+                     "b",
+                     { 
+                        "$or": [ "c", "d"]
+                     }
+                ]
+            }
+       }
+    ]
 }
 ```
