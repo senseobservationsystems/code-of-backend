@@ -8,7 +8,7 @@ Since I haven't managed to figure out how to add documentation for custom filter
 | end_strict   | boolean to specify whether query should be executed in with strict mode for end_time.<br />- Non strict end time request means that sensor data samples time period could intersect with end time request. When it does, sensor data samples will be included in the request result.<br />- Strict end time request means that end time of sensor data sample must be less than the request end time |
 | tags         | URI encoded string. You can encode the string by `encodeURIComponent('<tag query string>')` in JS. For the examples of notation for tag filter, see the section below.
 
-## Examples for possible notations in `tags` field
+## Examples for notations in `tags` field
 
 ### 1. a & b & !c & !d 
 
