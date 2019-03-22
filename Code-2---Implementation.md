@@ -209,4 +209,10 @@
          - in case of using _APIView_, or _GenericAPIView_ without _CreateModelMixin_:
            - override _put_ method for full update, and _patch_ method for partial update
 
-      7. To implement delete action (in order)
+      8. To implement delete action (in order)
+         - inherit DestroyModelMixin (either directly together with GenericAPIView, or indirectly from available _ModelViewSet, _DestroyAPIView_) and customization shall be done using available API
+           1. to use different instance method to perform delete, or provide more paremeter to instance.delete , override _perform_destroy_ method
+         - in case of using _ModelViewSet_ or available _views_ that inherit _DestroyModelMixin_:
+           - override _destroy_ method
+         - in case of using _APIView_, or _GenericAPIView_ without _DestroyModelMixin_:
+           - override _delete_ method
