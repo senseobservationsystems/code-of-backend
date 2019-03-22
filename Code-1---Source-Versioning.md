@@ -26,13 +26,15 @@
 
           <type>/<short description>
 
-      example: `feature/network_deletion_time`
+          example: 
+            feature/network_deletion_time
 
    3. When the branch is connected to an github Issue, the branch name must conform with following pattern
 
           <type>/<short description>#<issue_number>
 
-      example: `feature/network_deletion_time#123` where 123 the issue number that the branch connected to
+          example: 
+            feature/network_deletion_time#123    (where 123 the issue number that the branch connected to)
 
 ## 3. Commit message
    WIP
