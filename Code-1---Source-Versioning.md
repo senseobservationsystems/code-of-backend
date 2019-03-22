@@ -16,7 +16,7 @@
 
    2. All branch shall have `short description` in the name that reflect what the change is mainly about, short enough (3 words or less), separate with `_` (underscore)
 
-         `my_new_feature`
+      `my_new_feature`
 
       2.1 Specific for `release` implementation type, the `short description` shall formatted as follow
 
