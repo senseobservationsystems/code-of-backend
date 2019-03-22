@@ -10,7 +10,8 @@
       2. `<feature_name>` shall contain a noun that describe the main idea about the feature
       3. A feature shall be implemented in separate app when:
          - WIP
-      4. All communication between apps shall be happened through signal. Each app shall be loose-coupled, which mean there is no function call allowed between app. 
+
+   3. All communication between apps shall be happened through signal. Each app shall be loose-coupled, which mean there is no function call allowed between app. 
 
 ## 2. Feature App Structure
    1. An app shall be created with` django-admin createapp` command. 
@@ -51,7 +52,7 @@
          urlpatterns = router.urls
          ```
 
-      - Inherit _GenericViewSet_, with or without available _mixins_
+      - Inherit _GenericViewSet_, with or without available mixins (_CreateModelMixin_, _ListModelMixin_, etc)
 
         ```python
         ### in views.py
@@ -73,7 +74,7 @@
         urlpatterns = router.urls
         ```
 
-      - Inherit _GenericAPIView_, with or without available _mixins_
+      - Inherit _GenericAPIView_, with or without available mixins (_CreateModelMixin_, _ListModelMixin_, etc)
 
         ```python
         ### in views.py
@@ -103,7 +104,7 @@
         ]
         ```
 
-      - Function based view with _api_view_ decorator
+      - Function based view with _@api_view_ decorator
         ```python
         ### in views.py
         from rest_framework.decorators import api_view
