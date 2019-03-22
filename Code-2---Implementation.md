@@ -22,8 +22,10 @@
               apps.py
               admin.py
               authentications.py
+              filters.py
               handlers.py
               models.py
+              paginations.py
               permissions.py
               serializers.py
               views.py
