@@ -16,21 +16,21 @@
 
    2. All branch shall have `short description` in the name that reflect what the change is mainly about, short enough (3 words or less), separate with `_` (underscore)
 
-      `my_new_feature`
+          my_new_feature
 
-      2.1 Specific for `release` implementation type, the `short description` shall formatted as follow
+      1. Specific for `release` implementation type, the `short description` shall formatted as follow
 
-          `<major version>.<minor version>.<patch number>`
+             <major version>.<minor version>.<patch number>
 
    2. When the branch is stand alone implementation (not connected to any Issue), the branch name must confirm with following pattern
 
-      `<type>/<short description>`
+          <type>/<short description>
 
       example: `feature/network_deletion_time`
 
    3. When the branch is connected to an github Issue, the branch name must conform with following pattern
 
-      `<type>/<short description>#<issue_number>`
+          <type>/<short description>#<issue_number>
 
       example: `feature/network_deletion_time#123` where 123 the issue number that the branch connected to
 
