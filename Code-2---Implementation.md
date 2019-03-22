@@ -120,3 +120,30 @@
                 name='accept-invite'),
         ]
         ```
+
+   3. In case of using model based viewsets or generics view, customization shall done using their available API as long as possible
+      1. To apply custom authentication method (other than specified in `REST_FRAMEWORK.DEFAULT_AUTHENTICATION_CLASSES` settings):
+         - use custom authentication classes in _authentication_classes_ attribute of the view class
+
+           ```python
+           from knox import views as knox_views
+           from .auth import BasicAuthentication
+           
+           class LoginView(knox_views.LoginView):
+           
+               authentication_classes = (BasicAuthentication,)
+           ```
+
+         - override _get_authenticators_ method of the view class
+
+           ```python
+           class LoginView(knox_views.LoginView):
+           
+               def get_authenticators(self):
+                   if self.request.method == 'GET':
+                       return [TokenAuthentication()]
+                   else:
+                       return [BasicAuthentication()]
+           ```
+
+           
