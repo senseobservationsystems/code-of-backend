@@ -218,3 +218,46 @@
            - override _destroy_ method
          - in case of using _APIView_, or _GenericAPIView_ without _DestroyModelMixin_:
            - override _delete_ method
+
+## 3. Model
+   1. All model class and its business logic shall be implemented in `models.py` from the app directory
+      1. Instance scoped (row-level) logic shall be implemented as a method in model class
+         ```python
+         ### in models.py
+         class Target(models.Model):
+             ...
+             end_time = models.DateTimeField(null=True, blank=True, default=None)
+             is_active = models.BooleanField(default=True)
+             ...
+
+             def finish(self):
+                 self.end_time = timezone.now()
+                 self.is_active = False
+                 self.save()
+
+         ### in views.py         
+         class TargetView(ModelViewSet):
+             queryset = Target.objects.all()
+
+             @action(detail=True, methods=['get'])
+             def finish_target(self, request, pk=None):
+                 target = self.get_object()
+                 target.finish()
+                 serializer = TargetSerializer(instance=target)
+                 return Response(serializer.data, status=status.HTTP_200_OK)
+         ```
+
+      2. Model scoped (table-level) logic shall be implemented in a custom model manager class
+      3. Custom query behavior (manipulation) shall be implemented in a custom queryset class 
+
+   2. All models shall use singular name
+   3. Any change to data model shall always generate migrations file
+   4. Relation between data models shall be implemented using available relational _fields_
+      1. Many-to-One relationship shall be implemented using ForeignKey field
+         - ForeignKey field shall have nouns name without id in the name
+         - Reverse relation (back reference) query shall always use related_name
+      2. Many-to-Many relationship shall be implemented using ManyToMany field
+         
+      3. One-To-One relationship shall be implemented using OneToOne field
+   5. Use soft delete as long as it possible, and use model manager to exclude deleted instance
+   6. Model operation (query, create, update, delete) shall never happened in a loop.
