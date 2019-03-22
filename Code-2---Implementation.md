@@ -219,7 +219,7 @@
          - in case of using _APIView_, or _GenericAPIView_ without _DestroyModelMixin_:
            - override _delete_ method
 
-## 3. Model
+## 4. Model
    1. All model class and its business logic shall be implemented in `models.py` from the app directory
       1. Instance scoped (row-level) logic shall be implemented as a method in model class
          ```python
@@ -248,6 +248,7 @@
          ```
 
       2. Model scoped (table-level) logic shall be implemented in a custom model manager class
+
       3. Custom query behavior (manipulation) shall be implemented in a custom queryset class 
 
    2. All models shall use singular name
@@ -261,3 +262,7 @@
       3. One-To-One relationship shall be implemented using OneToOne field
    5. Use soft delete as long as it possible, and use model manager to exclude deleted instance
    6. Model operation (query, create, update, delete) shall never happened in a loop.
+
+## 5. Serializer
+
+## 6. URL and Router
